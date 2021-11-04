@@ -63,7 +63,7 @@ describe('Android Native Feature Tests', () => {
     await driver.pause(3000);
   });
 
-  it.only('Working with a date picker', async () => {
+  it('Working with a date picker', async () => {
     // access the date picker
     await driver.startActivity(
       "io.appium.android.apis",
