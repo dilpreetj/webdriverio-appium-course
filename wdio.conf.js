@@ -66,7 +66,7 @@ exports.config = {
             "appium:platformVersion": "15.0",
             "appium:deviceName": "iPhone 12",
             "appium:automationName": "XCUITest",
-            "appium:app": path.join(process.cwd(), "app/ios/MVCTodo.app"),
+            "appium:app": path.join(process.cwd(), "./app/ios/UIKitCatalog.app"),
         }
     ],
     //
