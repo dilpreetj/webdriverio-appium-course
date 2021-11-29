@@ -47,7 +47,6 @@ describe('iOS Find Element', () => {
   it('Exercise: Enter text in the search field', async () => {
     await $('~Search').click();
     await $('~Default').click();
-
     await $('//XCUIElementTypeSearchField').addValue("I love this course!");
     await expect($('//XCUIElementTypeSearchField')).toHaveAttr("value");
 

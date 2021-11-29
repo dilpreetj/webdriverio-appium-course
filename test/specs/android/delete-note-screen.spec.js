@@ -1,12 +1,13 @@
 const EditNoteScreen = require("../../screenobjects/android/edit-note.screen");
 
 describe('Delete Note', () => {
-  it('Delete a note & check the note in trash can', async () => {
+  before(async () => {
     await EditNoteScreen.skipTutorial();
     await EditNoteScreen.addAndSaveNote("TV shows", "Friends\nBreakingBad\nPeakyBlinders");
-
     await driver.back();
+  });
 
+  it('Delete a note & check the note in trash can', async () => {
     const note = await EditNoteScreen.firstNote.getText();
 
     // click on the note
