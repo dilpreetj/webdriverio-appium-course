@@ -1,11 +1,12 @@
-const path = require('path');
+require('dotenv').config()
 const { config } = require('./wdio.shared.conf');
 
-// ====================
-// Runner Configuration
-// ====================
 //
-config.port = 4723;
+// ============
+// BrowserStack Credentials
+// ============
+config.user = process.env.BROWSERSTACK_USER;
+config.key = process.env.BROWSERSTACK_KEY;
 
 //
 // ============
@@ -22,10 +23,10 @@ config.specs = [
 config.capabilities = [
   {
     platformName: "Android",
-    "appium:platformVersion": "11.0",
-    "appium:deviceName": "Pixel 3",
+    "appium:platformVersion": "10.0",
+    "appium:deviceName": "Google Pixel 3",
     "appium:automationName": "UIAutomator2",
-    "appium:app": path.join(process.cwd(), "./app/android/ColorNote Notepad.apk"),
+    "appium:app": "bs://1e802325b2d0f5fb873e1f2dff1f44a2512746db",
     "appium:autoGrantPermissions": true
   }
 ]
@@ -35,6 +36,6 @@ config.capabilities = [
 // Services take over a specific job you don't want to take care of. They enhance
 // your test setup with almost no effort. Unlike plugins, they don't add new
 // commands. Instead, they hook themselves up into the test process.
-config.services['appium'];
+config.services = ['browserstack'];
 
 exports.config = config;
