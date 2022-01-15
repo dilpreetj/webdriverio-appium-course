@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 16.3.0
+        - name: Install
+          run: npm install
+        - name: Test
+          env:
+            BROWSERSTACK_USER: ${{ secrets.BS_USER }}
+            BROWSERSTACK_KEY: ${{ secrets.BS_KEY }}
+          run: npx wdio config/wdio.android.bs.conf.js --spec test/specs/android/add-note-screen.spec.js
+        - uses: actions/upload-artifact@v1
+          if: failure()
+          with:
+            name: logs
+            path: logs
