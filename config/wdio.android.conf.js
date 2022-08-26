@@ -12,7 +12,7 @@ config.port = 4723;
 // Specs
 // ============
 config.specs = [
-  './test/specs/android/add-note-screen*.js'
+  path.join(process.cwd(), './test/specs/android/add-note-screen*.js')
 ];
 
 //
@@ -35,6 +35,6 @@ config.capabilities = [
 // Services take over a specific job you don't want to take care of. They enhance
 // your test setup with almost no effort. Unlike plugins, they don't add new
 // commands. Instead, they hook themselves up into the test process.
-config.services['appium'];
+config.services = ['appium'];
 
 exports.config = config;
