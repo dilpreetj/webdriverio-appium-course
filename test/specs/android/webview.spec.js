@@ -14,6 +14,17 @@ describe('Web Browser Access', () => {
     // click on the fb link
     await $('//*[@text="Like us on Facebook"]').click()
 
+    // get current context
+    // console.log(await driver.getContext())
+
+    // await driver.pause(2000)
+
+    // get all the contexts
+    await driver.getContexts()
+
+    // switch to webview chrome context
+    await driver.switchContext('WEBVIEW_chrome')
+
     // assert the cover image is displayed
     const coverImg = await $('.img.coverPhoto');
     await expect(coverImg).toBeDisplayed()
