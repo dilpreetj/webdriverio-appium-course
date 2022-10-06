@@ -14,11 +14,6 @@ describe('Web Browser Access', () => {
     // click on the fb link
     await $('//*[@text="Like us on Facebook"]').click()
 
-    // get current context
-    // console.log(await driver.getContext())
-
-    // await driver.pause(2000)
-
     // get all the contexts
     await driver.getContexts()
 
@@ -28,5 +23,14 @@ describe('Web Browser Access', () => {
     // assert the cover image is displayed
     const coverImg = await $('.img.coverPhoto');
     await expect(coverImg).toBeDisplayed()
+
+    // switch back to app
+    await driver.switchContext('NATIVE_APP')
+    await driver.back()
+
+    // continue with the app stuff..
+    await $('//*[@text="Notes"]').click();
+    const addNoteText = await $('//*[@text="Add note"]')
+    await expect(addNoteText).toBeDisplayed()
   });
 });
