@@ -1,5 +1,5 @@
 # webdriverio-appium-course
-This repository is part of the [Mobile Automation with Appium &amp; WebdriverIO](https://www.udemy.com/course/appium-webdriverio-mobile-automation/?referralCode=70179964D63962225A04) Course on Udemy.
+This repository is part of the [Mobile Automation with Appium &amp; WebdriverIO](https://sdetunicorns.com/course/mobile-automation-with-appium-2-0-and-webdriverio/) Course from SDET Unicorns.
 
 ## Setup
 - **Install packages**: `npm install`
